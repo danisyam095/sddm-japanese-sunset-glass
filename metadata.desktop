@@ -1,0 +1,13 @@
+[SddmGreeterTheme]
+Name=Japanese Sunset Glass
+Description=SDDM login theme with a Japanese sunset glass panel
+Author=IamLinux
+Copyright=Copyright 2026
+License=MIT
+Type=sddm-theme
+Version=1.0
+Website=
+Screenshot=showcase.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+QtVersion=6
