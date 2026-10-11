@@ -20,7 +20,6 @@ required_files=(
     components/ClockDate.qml
     components/PowerActions.qml
     assets/background.png
-    assets/arch-logo.svg
     assets/avatar-placeholder.svg
     assets/icons/lock.svg
     assets/icons/login.svg
@@ -37,6 +36,11 @@ for file in "${required_files[@]}"; do
         exit 1
     fi
 done
+
+if grep -Eq '^[[:space:]]*(logo|distroName)[[:space:]]*=' "$THEME_DIR/theme.conf"; then
+    printf 'theme.conf must not define logo branding settings.\n' >&2
+    exit 1
+fi
 
 if ! grep -q '^QtVersion=6$' "$THEME_DIR/metadata.desktop"; then
     printf 'metadata.desktop must select the Qt 6 greeter.\n' >&2

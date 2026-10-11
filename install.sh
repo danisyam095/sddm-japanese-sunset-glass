@@ -116,7 +116,8 @@ fi
 
 for required in metadata.desktop theme.conf Main.qml components/LoginPanel.qml \
                 components/ClockDate.qml components/PowerActions.qml \
-                assets/background.png assets/avatar-placeholder.svg showcase.png; do
+                assets/background.png assets/avatar-placeholder.svg \
+                showcase.png; do
     if [[ ! -s "$SOURCE_DIR/$required" ]]; then
         say_error "required theme file is missing or empty: $required"
         exit 1
@@ -152,6 +153,7 @@ printf '\nJapanese Sunset Glass installation plan\n'
 printf '  Theme destination: %s\n' "$THEME_DEST"
 printf '  SDDM configuration: %s\n' "$CONFIG_FILE"
 printf '  Existing theme: %s\n' "$([[ "$THEME_EXISTED" == 1 ]] && printf yes || printf no)"
+printf '  Login panel: logo-free typographic design\n'
 printf '  Package manager and service changes: none\n'
 printf '  Display manager will not be started or switched.\n'
 
@@ -259,10 +261,15 @@ for required in Main.qml metadata.desktop theme.conf components/LoginPanel.qml a
         false
     fi
 done
+if grep -Eq '^[[:space:]]*(logo|distroName)[[:space:]]*=' "$THEME_DEST/theme.conf"; then
+    say_error "the installed theme unexpectedly contains logo branding settings"
+    false
+fi
 
 printf '\nInstallation completed.\n'
 printf '  Theme: %s\n' "$THEME_DEST"
 printf '  Configuration: %s\n' "$CONFIG_FILE"
 printf '  Backup: %s\n' "$BACKUP_DIR"
+printf '  Logo: none\n'
 printf '  No package, service, or display-manager changes were made.\n'
 printf '  Restart SDDM or reboot only when you are ready to test the login screen.\n'

@@ -9,6 +9,21 @@ installed. The installer does not install packages, switch display managers,
 enable or start services, or reboot. It installs the theme and updates SDDM's
 theme configuration only.
 
+This theme does not display a virtual keyboard by itself. If SDDM is configured
+with `InputMethod=qtvirtualkeyboard`, remove that setting from the SDDM
+configuration to disable the on-screen keyboard. The installer does not alter
+this system-wide input setting. For example, back up the drop-in first, then
+remove that setting:
+
+```sh
+backup="/etc/sddm.conf.d/virtualkbd.conf.backup.$(date +%Y%m%d-%H%M%S)"
+sudo cp -a /etc/sddm.conf.d/virtualkbd.conf "$backup"
+sudo sed -i '/^[[:space:]]*InputMethod[[:space:]]*=[[:space:]]*qtvirtualkeyboard[[:space:]]*$/d' \
+  /etc/sddm.conf.d/virtualkbd.conf
+```
+
+Use the actual configuration file containing the setting on your system.
+
 Install the latest public version with:
 
 ```sh
@@ -20,7 +35,7 @@ installer over HTTPS; the installer then downloads and validates the source
 archive before making changes. It asks for confirmation, backs up the existing
 SDDM configuration and theme when present, and prints the backup location.
 It does not restart SDDM, so apply the change only when you are ready to test
-the greeter.
+the greeter. The login panel uses a clean, logo-free typographic design.
 
 To install from a local checkout instead:
 

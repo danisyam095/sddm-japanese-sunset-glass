@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="70 30 470 370" role="img" aria-labelledby="title desc"><title id="title">IamLinux Symbol</title><desc id="desc">Abstract flowing i and A ribbon symbol in cyan, blue and violet.</desc>
+<defs>
+ <linearGradient id="ribbon" x1="0.18" y1="0.08" x2="0.82" y2="0.96">
+  <stop offset="0" stop-color="#4AF0FF"/>
+  <stop offset="0.34" stop-color="#18BAF4"/>
+  <stop offset="0.66" stop-color="#2878F2"/>
+  <stop offset="1" stop-color="#995BFF"/>
+ </linearGradient>
+ <linearGradient id="ribbonLight" x1="0.05" y1="0" x2="0.9" y2="1">
+  <stop offset="0" stop-color="#6AF4FF"/>
+  <stop offset="0.45" stop-color="#169EEB"/>
+  <stop offset="0.76" stop-color="#315CE9"/>
+  <stop offset="1" stop-color="#8454F7"/>
+ </linearGradient>
+ <linearGradient id="shade" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#153EA7"/>
+  <stop offset="0.6" stop-color="#2637B5"/>
+  <stop offset="1" stop-color="#6F47E6"/>
+ </linearGradient>
+ <linearGradient id="wordGrad" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#40E7F4"/>
+  <stop offset="0.48" stop-color="#288DFB"/>
+  <stop offset="1" stop-color="#9A63FF"/>
+ </linearGradient>
+ <linearGradient id="wordGradLight" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#00AAC8"/>
+  <stop offset="0.48" stop-color="#266FE9"/>
+  <stop offset="1" stop-color="#7548DF"/>
+ </linearGradient>
+ <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+  <feGaussianBlur stdDeviation="4" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+ </filter>
+</defs>
+<g stroke-linejoin="round" stroke-linecap="round">
+ <!-- luminous dot of the i -->
+ <circle cx="171" cy="104" r="28" fill="url(#ribbon)"/>
+ <circle cx="164" cy="96" r="15" fill="#B8FFFF" opacity=".13"/>
+ <!-- left ribbon stroke, curved rather than a plain diagonal -->
+ <path d="M191 153
+          C198 148 207 153 203 164
+          L148 302
+          C141 320 126 331 109 322
+          C92 313 91 295 100 278
+          L133 208
+          C145 181 164 166 191 153 Z" fill="url(#ribbon)"/>
+ <!-- main high arch / A ribbon -->
+ <path d="M212 321
+          C203 333 191 330 197 315
+          L287 105
+          C299 77 314 60 336 60
+          C359 60 374 79 387 105
+          L507 314
+          C516 331 508 340 490 340
+          L462 340
+          C438 340 420 327 403 307
+          L352 244
+          C343 232 334 232 322 243
+          L254 307
+          C239 321 226 330 212 321 Z" fill="url(#ribbon)"/>
+ <!-- folded inner face makes the mark read as a flowing ribbon, not a generic letter A -->
+ <path d="M212 321
+          C245 299 276 250 310 226
+          C324 216 337 219 350 235
+          L401 295
+          C418 316 434 329 460 339
+          L433 339
+          C409 339 391 326 374 306
+          L343 271
+          C333 259 324 258 312 269
+          L254 313
+          C239 324 225 329 212 321 Z" fill="url(#shade)" opacity=".98"/>
+ <!-- bright front strip across the right side of the arch -->
+ <path d="M336 61
+          C358 60 374 80 388 107
+          L507 314
+          C516 331 508 340 490 340
+          L463 340
+          C440 340 421 327 404 307
+          L383 281
+          C405 286 425 301 442 317
+          C454 328 468 332 482 331
+          L367 118
+          C355 96 346 76 336 61 Z" fill="url(#ribbonLight)"/>
+ <!-- subtle overlap edge to emphasize folded depth -->
+ <path d="M198 315 C222 295 246 269 268 243 C289 219 305 206 323 198 C333 193 344 198 353 207 L382 241 C362 225 346 215 334 215 C318 216 304 231 287 248 C257 279 232 307 212 321 C203 330 191 329 198 315Z" fill="#163BB6" opacity=".42"/>
+</g>
+</svg>

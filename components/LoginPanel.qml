@@ -30,8 +30,6 @@ Rectangle {
     border.color: "#70F5E7D0"
     clip: true
 
-    Component.onCompleted: passwordInput.forceActiveFocus()
-
     function cacheAccount(index, name, realName, icon) {
         userAccounts[index] = {
             name: name || "",
@@ -89,7 +87,6 @@ Rectangle {
                 root.loginInProgress = false
                 root.statusMessage = "Login timed out. Please try again."
                 passwordInput.clear()
-                passwordInput.forceActiveFocus()
             }
         }
     }
@@ -107,7 +104,6 @@ Rectangle {
             root.loginInProgress = false
             root.statusMessage = "Login failed. Check your password and try again."
             passwordInput.clear()
-            passwordInput.forceActiveFocus()
         }
 
         function onInformationMessage(message) {
@@ -157,49 +153,49 @@ Rectangle {
         }
     }
 
-    Image {
-        id: archLogo
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: parent.height * 0.065
-        width: Math.min(parent.width * 0.19, parent.height * 0.22)
-        height: parent.height * 0.19
-        source: Qt.resolvedUrl("../assets/arch-logo.svg")
-        fillMode: Image.PreserveAspectFit
-        smooth: true
-    }
-
     Text {
-        anchors.top: archLogo.bottom
-        anchors.topMargin: parent.height * 0.018
+        anchors.top: parent.top
+        anchors.topMargin: parent.height * 0.115
         anchors.horizontalCenter: parent.horizontalCenter
-        text: "Arch Linux"
-        color: "#F5E7D0"
+        text: "JAPANESE SUNSET GLASS"
+        color: "#F2B17D"
         font.family: root.fontFamily
-        font.pixelSize: Math.max(15, root.width * 0.055)
-        font.letterSpacing: root.width * 0.009
+        font.pixelSize: Math.max(9, root.width * 0.027)
+        font.letterSpacing: root.width * 0.004
         horizontalAlignment: Text.AlignHCenter
     }
 
     Text {
-        id: tagline
         anchors.top: parent.top
-        anchors.topMargin: parent.height * 0.365
+        anchors.topMargin: parent.height * 0.165
         anchors.horizontalCenter: parent.horizontalCenter
         width: parent.width * 0.82
-        text: "FAST  ·  LIGHT  ·  PRODUCTIVE"
+        text: "Welcome back"
+        color: "#F5E7D0"
+        font.family: root.fontFamily
+        font.pixelSize: Math.max(23, root.width * 0.082)
+        horizontalAlignment: Text.AlignHCenter
+        elide: Text.ElideRight
+    }
+
+    Text {
+        anchors.top: parent.top
+        anchors.topMargin: parent.height * 0.255
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width * 0.82
+        text: "Sign in to continue"
         color: "#D6C8B8"
         font.family: root.fontFamily
-        font.pixelSize: Math.max(7, root.width * 0.023)
-        font.letterSpacing: root.width * 0.004
+        font.pixelSize: Math.max(12, root.width * 0.036)
         horizontalAlignment: Text.AlignHCenter
         elide: Text.ElideRight
     }
 
     Rectangle {
         anchors.top: parent.top
-        anchors.topMargin: parent.height * 0.417
+        anchors.topMargin: parent.height * 0.335
         anchors.horizontalCenter: parent.horizontalCenter
-        width: parent.width * 0.105
+        width: parent.width * 0.12
         height: 2
         color: "#FF7139"
     }
@@ -209,7 +205,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: parent.width * 0.115
         anchors.top: parent.top
-        anchors.topMargin: parent.height * 0.46
+        anchors.topMargin: parent.height * 0.39
         width: parent.width * 0.77
         height: parent.height * 0.11
         spacing: parent.width * 0.055
@@ -514,7 +510,6 @@ Rectangle {
                     root.cacheAccount(index, name, realName, icon)
                     root.selectAccount(index)
                     accountChooser.visible = false
-                    passwordInput.forceActiveFocus()
                 }
             }
         }
@@ -527,7 +522,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.rightMargin: parent.width * 0.105
         anchors.top: parent.top
-        anchors.topMargin: parent.height * 0.64
+        anchors.topMargin: parent.height * 0.59
         height: parent.height * 0.08
         radius: height * 0.5
         color: "#241C20"
@@ -619,31 +614,13 @@ Rectangle {
         }
     }
 
-    Text {
-        anchors.left: passwordField.left
-        anchors.right: passwordField.right
-        anchors.top: passwordField.bottom
-        anchors.topMargin: root.height * 0.004
-        height: root.height * 0.03
-        text: root.loginInProgress && !root.statusMessage
-              ? "Signing in…" : root.statusMessage
-        color: root.statusMessage.indexOf("failed") >= 0
-               || root.statusMessage.indexOf("timed out") >= 0
-               ? "#FFB095" : "#F2D1AC"
-        font.family: root.fontFamily
-        font.pixelSize: Math.max(9, root.width * 0.027)
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        elide: Text.ElideRight
-    }
-
     Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: parent.width * 0.13
         anchors.right: parent.right
         anchors.rightMargin: parent.width * 0.13
         anchors.top: parent.top
-        anchors.topMargin: parent.height * 0.775
+        anchors.topMargin: parent.height * 0.74
         height: 1
         color: "#36F5E7D0"
     }
@@ -654,7 +631,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.rightMargin: parent.width * 0.105
         anchors.top: parent.top
-        anchors.topMargin: parent.height * 0.8
+        anchors.topMargin: parent.height * 0.765
         height: parent.height * 0.105
         fontFamily: root.fontFamily
     }
